@@ -26,11 +26,10 @@ export default {
           </h1>
         </div>
 
-        <div>
-          <label for="review" class="block mt-4 text-sm font-medium text-gray-700">Want to expand on anything?</label>
-          <div class="mt-1">
-            <textarea rows="3" name="review" id="review" class="block p-2 border-2 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-          </div>
+        <div class="block py-2">
+          <label for="numberreview" class="block text-sm font-medium text-gray-700 mb-2">How was your day?</label>
+          <input type="tel" name="numberreview" id="numberreview" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" aria-describedby="numberreview-description">
+          <p class="mt-1 text-sm text-gray-500" id="numberreview-description">Use a 1-10 scale. 10 Being a great day!</p>
         </div>
         
         <ToggleItem title="🇫🇷 Practice French?" description="Avez-vous étudié le français aujourd'hui? C'est en forgeant qu'on devient forgeron!" name="language" />
@@ -43,10 +42,11 @@ export default {
 
         <ToggleItem title="💡 Learn something new?" description="Stagnation is death! Keep your mind sharp! Did you get spend time flex a new skill?" name="personalproject" />
 
-        <div class="block py-2">
-          <label for="numberreview" class="block text-sm font-medium text-gray-700 mb-2">How was your day?</label>
-          <input type="tel" name="numberreview" id="numberreview" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" aria-describedby="numberreview-description">
-          <p class="mt-1 text-sm text-gray-500" id="numberreview-description">Use a 1-10 scale. 10 Being a great day!</p>
+        <div>
+          <label for="review" class="block mt-4 text-sm font-medium text-gray-700">Want to expand on anything?</label>
+          <div class="mt-1">
+            <textarea rows="3" name="review" id="review" class="block p-2 border-2 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
+          </div>
         </div>
 
         <div class="flex w-full align-items-end justify-end">

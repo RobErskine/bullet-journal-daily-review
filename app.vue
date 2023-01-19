@@ -17,12 +17,13 @@ export default {
 <template>
   <main class="p-4 w-full">
     <form data-netlify="true" netlify name="bullet-journal">
-      <input type="hidden" name="date" :value=currentDate() />
+      <input type="hidden" name="date" :value=currentDate() >
       <div>
         <h1 class="text-3xl text-center font-bold">
           Daily Review
         </h1>
       </div>
+
       <!-- Daily rating -->
       <div class="block py-2">
         <label for="email" class="block text-sm font-medium text-gray-700">How was your day?</label>

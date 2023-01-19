@@ -1,2 +1,5 @@
 .DS_STORE
 .output
+
+# Local Netlify folder
+.netlify

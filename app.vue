@@ -10,30 +10,31 @@ export default {
       const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
       return date;
     },
-    handleSubmit(event) {
-      event.preventDefault();
-
-      const myForm = event.target;
-      const formData = new FormData(myForm);
-      
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          (key) =>
+            encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        )
+        .join("&");
+    },
+    handleSubmit() {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      })
-        .then(() => {
-          console.log("Form successfully submitted")
-          alert('daily review submitted')
+        body: this.encode({
+          "form-name": 'bullet-journal',
+          ...name
         })
-        .catch((error) => alert(error));
+      }).then(() => { alert('success!') }).catch((error) => alert(error));
     }
   }
-};
+}
 </script>
 
 <template>
   <main class="p-4 w-full">
-    <form data-netlify="true" method="POST" netlify name="bullet-journal">
+    <form data-netlify="true" method="POST" netlify name="bullet-journal" @submit.prevent="handleSubmit()">
       <div>
         <input type="hidden" name="date" :value=currentDate() >
         

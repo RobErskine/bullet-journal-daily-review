@@ -24,13 +24,6 @@ export default {
           Daily Review
         </h1>
       </div>
-
-      <!-- Daily rating -->
-      <div class="block py-2">
-        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">How was your day?</label>
-        <input type="tel" name="rating" id="rating" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="7" aria-describedby="rating-description" pattern="\b([1-9]|10)\b" />
-        <p class="mt-1 text-sm text-gray-500" id="rating-description">Use a 1-10 scale. 10 Being a great day!</p>
-      </div>
       
       <ToggleItem title="🇫🇷 Practice French?" description="Avez-vous étudié le français aujourd'hui? C'est en forgeant qu'on devient forgeron!" name="language" />
     
@@ -41,6 +34,13 @@ export default {
       <ToggleItem title="🎢 Jam on a personal project?" description="Nothing like building something with your own hands. Make some time to make something for fun?" name="personalproject" />
 
       <ToggleItem title="💡 Learn something new?" description="Stagnation is death! Keep your mind sharp! Did you get spend time flex a new skill?" name="personalproject" />
+
+      <!-- Daily rating -->
+      <div class="block py-2">
+        <label for="rating" class="block text-sm font-medium text-gray-700 mb-2">How was your day?</label>
+        <input type="tel" name="rating" id="rating" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="7" aria-describedby="rating-description" pattern="\b([1-9]|10)\b">
+        <p class="mt-1 text-sm text-gray-500" id="rating-description">Use a 1-10 scale. 10 Being a great day!</p>
+      </div>
 
       <div>
         <label for="review" class="block mt-4 text-sm font-medium text-gray-700">Want to expand on anything?</label>

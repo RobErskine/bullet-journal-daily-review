@@ -28,13 +28,19 @@ export default {
         .join("&");
     },
     handleSubmit() {
-      let form = document.getElementById("daily-review");
-      let data = new FormData(form)
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: this.encode({
-          ...data
+          'form-name': 'bullet-journal',
+          'date': document.getElementById('date').value,
+          'numberreview': document.getElementById('numberreview').value,
+          'language': document.getElementsByName('language')[0].value,
+          'exercise': document.getElementsByName('exercise')[0].value,
+          'friends': document.getElementsByName('friends')[0].value,
+          'personalproject': document.getElementsByName('personalproject')[0].value,
+          'learn': document.getElementsByName('learn')[0].value,
+          'review': document.getElementById('numberreview').value,
         })
       }).then(() => { alert('success!') }).catch((error) => alert(error));
     }
@@ -46,7 +52,7 @@ export default {
   <main class="p-4 w-full">
     <form id="daily-review" data-netlify="true" method="POST" netlify name="bullet-journal" @submit.prevent="handleSubmit()">
       <div>
-        <input type="hidden" name="date" :value=currentDate() >
+        <input id="date" type="hidden" name="date" :value=currentDate() >
         
         <div>
           <h1 class="text-3xl text-center font-bold">

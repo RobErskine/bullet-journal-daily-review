@@ -34,7 +34,7 @@ export default {
         body: this.encode({
           'form-name': 'bullet-journal',
           'date': document.getElementById('date').value,
-          'numberreview': document.getElementById('numberreview').value,
+          'numberreview': (parseInt(document.getElementById('numberreview').value) * 10),
           'language': document.getElementsByName('language')[0].checked,
           'exercise': document.getElementsByName('exercise')[0].checked,
           'friends': document.getElementsByName('friends')[0].checked,

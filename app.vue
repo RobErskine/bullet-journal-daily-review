@@ -16,7 +16,7 @@ export default {
 
 <template>
   <main class="p-4 w-full">
-    <form data-netlify="true" name="bullet-journal">
+    <form data-netlify="true" netlify name="bullet-journal">
       <div>
         <h1 class="text-3xl text-center font-bold">
           Daily Review

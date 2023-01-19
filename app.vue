@@ -4,6 +4,15 @@
 
 <script>
 export default {
+  // data() {
+  //   return {
+  //     form: {
+  //       formName: "",
+  //       email: "",
+  //       message: "",
+  //     },
+  //   };
+  // },
   methods: {
     currentDate() {
       const current = new Date();
@@ -19,18 +28,13 @@ export default {
         .join("&");
     },
     handleSubmit() {
+      let form = document.getElementById("daily-review");
+      let data = new FormData(form)
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: this.encode({
-          "form-name": 'bullet-journal',
-          ...numberreview,
-          ...language,
-          ...exercise,
-          ...friends,
-          ...personalproject,
-          ...learn,
-          ...review
+          ...data
         })
       }).then(() => { alert('success!') }).catch((error) => alert(error));
     }
@@ -40,7 +44,7 @@ export default {
 
 <template>
   <main class="p-4 w-full">
-    <form data-netlify="true" method="POST" netlify name="bullet-journal" @submit.prevent="handleSubmit()">
+    <form id="daily-review" data-netlify="true" method="POST" netlify name="bullet-journal" @submit.prevent="handleSubmit()">
       <div>
         <input type="hidden" name="date" :value=currentDate() >
         

@@ -35,12 +35,12 @@ export default {
           'form-name': 'bullet-journal',
           'date': document.getElementById('date').value,
           'numberreview': document.getElementById('numberreview').value,
-          'language': document.getElementsByName('language')[0].value,
-          'exercise': document.getElementsByName('exercise')[0].value,
-          'friends': document.getElementsByName('friends')[0].value,
-          'personalproject': document.getElementsByName('personalproject')[0].value,
-          'learn': document.getElementsByName('learn')[0].value,
-          'review': document.getElementById('numberreview').value,
+          'language': document.getElementsByName('language')[0].checked,
+          'exercise': document.getElementsByName('exercise')[0].checked,
+          'friends': document.getElementsByName('friends')[0].checked,
+          'personalproject': document.getElementsByName('personalproject')[0].checked,
+          'learn': document.getElementsByName('learn')[0].checked,
+          'review': document.getElementById('review').value,
         })
       }).then(() => { alert('success!') }).catch((error) => alert(error));
     }

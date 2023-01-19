@@ -17,6 +17,7 @@ export default {
 <template>
   <main class="p-4 w-full">
     <form data-netlify="true" netlify name="bullet-journal">
+      <input type="hidden" name="date" :value=currentDate() />
       <div>
         <h1 class="text-3xl text-center font-bold">
           Daily Review
@@ -24,12 +25,11 @@ export default {
       </div>
       <!-- Daily rating -->
       <div class="block py-2">
-        <input type="hidden" name="date" :value=currentDate() />
         <label for="email" class="block text-sm font-medium text-gray-700">How was your day?</label>
         <div class="mt-2">
-          <input type="tel" name="rating" id="rating" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="7" aria-describedby="rating-description" pattern="\b([1-9]|10)\b"/>
+          <input type="tel" name="rating" id="rating" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="7" aria-describedby="rating-description" pattern="\b([1-9]|10)\b" />
         </div>
-        <p class="mt-1 text-sm text-gray-500" id="rating-description">Rate it on a scale from 1-10. 10 Being a great day!</p>
+        <p class="mt-1 text-sm text-gray-500" id="rating-description">Use a 1-10 scale. 10 Being a great day!</p>
       </div>
       
       <ToggleItem title="🇫🇷 Practice French?" description="Avez-vous étudié le français aujourd'hui? C'est en forgeant qu'on devient forgeron!" name="language" />

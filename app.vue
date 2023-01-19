@@ -1,5 +1,5 @@
 <script setup>
-  import { EnvelopeIcon } from '@heroicons/vue/20/solid'
+  import { EnvelopeIcon, LanguageIcon } from '@heroicons/vue/20/solid'
 </script>
 
 <script>
@@ -24,7 +24,13 @@ export default {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: this.encode({
           "form-name": 'bullet-journal',
-          ...name
+          ...numberreview,
+          ...language,
+          ...exercise,
+          ...friends,
+          ...personalproject,
+          ...learn,
+          ...review
         })
       }).then(() => { alert('success!') }).catch((error) => alert(error));
     }
@@ -58,7 +64,7 @@ export default {
 
         <ToggleItem title="🎢 Jam on a personal project?" description="Nothing like building something with your own hands. Make some time to make something for fun?" name="personalproject" />
 
-        <ToggleItem title="💡 Learn something new?" description="Stagnation is death! Keep your mind sharp! Did you get spend time flex a new skill?" name="personalproject" />
+        <ToggleItem title="💡 Learn something new?" description="Stagnation is death! Keep your mind sharp! Did you get spend time flex a new skill?" name="learn" />
 
         <div>
           <label for="review" class="block mt-4 text-sm font-medium text-gray-700">Want to expand on anything?</label>

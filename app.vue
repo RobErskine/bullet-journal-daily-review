@@ -35,10 +35,9 @@ export default {
 
       <ToggleItem title="💡 Learn something new?" description="Stagnation is death! Keep your mind sharp! Did you get spend time flex a new skill?" name="personalproject" />
 
-      <!-- Daily rating -->
       <div class="block py-2">
         <label for="rating" class="block text-sm font-medium text-gray-700 mb-2">How was your day?</label>
-        <input type="tel" name="rating" id="rating" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="7" aria-describedby="rating-description" pattern="\b([1-9]|10)\b">
+        <input type="tel" name="rating" id="rating" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="7" aria-describedby="rating-description">
         <p class="mt-1 text-sm text-gray-500" id="rating-description">Use a 1-10 scale. 10 Being a great day!</p>
       </div>
 

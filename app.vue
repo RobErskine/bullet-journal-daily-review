@@ -1,61 +1,3 @@
-<script setup>
-  import { EnvelopeIcon, LanguageIcon } from '@heroicons/vue/20/solid'
-
-  const props = defineProps({
-    submitted: {
-      type: Boolean,
-      default: false,
-      required: true
-    }
-  })
-</script>
-
-<script>
-export default {
-  methods: {
-    currentDate() {
-      const current = new Date();
-      const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-      const date = `${current.getFullYear()}-${months[current.getMonth()]}-${current.getDate()}`;
-      return date;
-    },
-    currentTimeInHours() {
-      const current = new Date();
-      const hours = current.getHours();
-      return (hours - 12);
-    },
-    encode(data) {
-      return Object.keys(data)
-        .map(
-          (key) =>
-            encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-        )
-        .join("&");
-    },
-    handleSubmit() {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: this.encode({
-          'form-name': 'bullet-journal',
-          'date': document.getElementById('date').value,
-          'numberreview': (parseInt(document.getElementById('numberreview').value) * 10),
-          'language': document.getElementsByName('language')[0].checked,
-          'exercise': document.getElementsByName('exercise')[0].checked,
-          'friends': document.getElementsByName('friends')[0].checked,
-          'personalproject': document.getElementsByName('personalproject')[0].checked,
-          'learn': document.getElementsByName('learn')[0].checked,
-          'review': document.getElementById('review').value,
-        })
-      }).then(() => { 
-        // alert('success!')
-        this.submitted = true 
-      }).catch((error) => alert(error));
-    }
-  }
-}
-</script>
-
 <style>
 body{
   margin:0px;
@@ -80,7 +22,7 @@ body > div{
       </div>
     </div>
     <div v-else>
-      <div v-if="this.submitted === false">
+      <div v-if="submitted === false">
         <form id="daily-review" data-netlify="true" method="POST" netlify name="bullet-journal" @submit.prevent="handleSubmit()">
           <div>
             <input id="date" type="hidden" name="date" :value=currentDate() >
@@ -130,3 +72,58 @@ body > div{
     </div>
   </main>
 </template>
+
+<script setup>
+  import { EnvelopeIcon, LanguageIcon } from '@heroicons/vue/20/solid'
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      submitted: false
+    }
+  },
+  methods: {
+    currentDate() {
+      const current = new Date();
+      const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+      const date = `${current.getFullYear()}-${months[current.getMonth()]}-${current.getDate()}`;
+      return date;
+    },
+    currentTimeInHours() {
+      const current = new Date();
+      const hours = current.getHours();
+      return (hours - 12);
+    },
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          (key) =>
+            encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        )
+        .join("&");
+    },
+    handleSubmit() {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: this.encode({
+          'form-name': 'bullet-journal',
+          'date': document.getElementById('date').value,
+          'numberreview': (parseInt(document.getElementById('numberreview').value) * 10),
+          'language': document.getElementsByName('language')[0].checked,
+          'exercise': document.getElementsByName('exercise')[0].checked,
+          'friends': document.getElementsByName('friends')[0].checked,
+          'personalproject': document.getElementsByName('personalproject')[0].checked,
+          'learn': document.getElementsByName('learn')[0].checked,
+          'review': document.getElementById('review').value,
+        })
+      }).then(() => { 
+        // alert('success!')
+        this.submitted = true 
+      }).catch((error) => alert(error));
+    }
+  }
+}
+</script>

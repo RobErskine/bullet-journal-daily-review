@@ -62,13 +62,16 @@ body{
 
 body > div{
   height: inherit;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 
 <template>
-  <main class="p-4 w-full h-full block flex pb-24">
-    <div v-if="currentTimeInHours() < 10">
-      <div class="flex flex-col align-center justify-center h-full p-8">
+  <main class="p-4 w-full max-w-md block flex pb-24 mx-auto">
+    <div v-if="currentTimeInHours() <= 9" class="block w-full">
+      <div class="flex flex-col align-center justify-center p-8">
         <h1 class="text-center text-3xl font-bold">It's a tad too early to review today!</h1>
         <p class="text-center text-md block mt-6">You cannot review today yet. <br/>Come back after 10pm.</p>
       </div>
@@ -78,13 +81,11 @@ body > div{
         <form id="daily-review" data-netlify="true" method="POST" netlify name="bullet-journal" @submit.prevent="handleSubmit()">
           <div>
             <input id="date" type="hidden" name="date" :value=currentDate() >
-            
             <div>
               <h1 class="text-3xl text-center font-bold">
                 Daily Review
               </h1>
             </div>
-
             <div class="block py-2">
               <label for="numberreview" class="block text-sm font-medium text-gray-700 mb-2">How was your day?</label>
               <input type="tel" name="numberreview" id="numberreview" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" aria-describedby="numberreview-description">

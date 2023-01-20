@@ -7,15 +7,14 @@ body{
 
 body > div{
   height: inherit;
-  display:flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>
 
+if current time is betwwen 10 and -2
+
 <template>
   <main class="p-4 w-full max-w-md block flex pb-24 mx-auto">
-    <div v-if="currentTimeInHours() <= 9" class="block w-full">
+    <div v-if="currentTimeInHours() >= 9" class="block w-full">
       <div class="flex flex-col align-center justify-center p-8">
         <h1 class="text-center text-3xl font-bold">It's a tad too early to review today!</h1>
         <p class="text-center text-md block mt-6">You cannot review today yet. <br/>Come back after 10pm.</p>
@@ -67,6 +66,7 @@ body > div{
         <div class="flex flex-col align-center justify-center h-full p-8">
           <h1 class="text-center text-3xl font-bold">Thanks for reviewing today!</h1>
           <p class="text-center text-md block mt-6">Pull in data from Notion here to show trends here.</p>
+          <a href="/" class="inline-block items-center mt-4 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-center text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Reset</a>
         </div>
       </div>
     </div>

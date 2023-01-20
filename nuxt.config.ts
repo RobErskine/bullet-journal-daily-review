@@ -5,6 +5,11 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@kevinmarrec/nuxt-pwa'
   ],
+  pwa: {
+    manifest: {
+      name: 'Daily'
+    }
+  }
   // pwa: {
   //   workbox: {
   //     enabled: true

@@ -10,14 +10,13 @@ body > div{
 }
 </style>
 
-if current time is betwwen 10 and -2
-
 <template>
+  <!-- {{ currentTimeInHours() }} -->
   <main class="p-4 w-full max-w-md block flex pb-24 mx-auto">
-    <div v-if="currentTimeInHours() >= 9" class="block w-full">
+    <div v-if="currentTimeInHours() < 21" class="block w-full">
       <div class="flex flex-col align-center justify-center p-8">
         <h1 class="text-center text-3xl font-bold">It's a tad too early to review today!</h1>
-        <p class="text-center text-md block mt-6">You cannot review today yet. <br/>Come back after 10pm.</p>
+        <p class="text-center text-md block mt-6">You cannot review today yet. <br/>Come back after 9pm est.</p>
       </div>
     </div>
     <div v-else>
@@ -94,7 +93,7 @@ export default {
     currentTimeInHours() {
       const current = new Date();
       const hours = current.getHours();
-      return (hours - 12);
+      return hours;
     },
     encode(data) {
       return Object.keys(data)

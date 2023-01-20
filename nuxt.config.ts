@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     manifest: {
       name: 'Daily'
     }
-  }
+  },
+  // devServerHandlers: []
   // pwa: {
   //   workbox: {
   //     enabled: true

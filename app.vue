@@ -1,14 +1,17 @@
 <script setup>
   import { EnvelopeIcon, LanguageIcon } from '@heroicons/vue/20/solid'
+
+  const props = defineProps({
+    submitted: {
+      type: Boolean,
+      default: false,
+      required: true
+    }
+  })
 </script>
 
 <script>
 export default {
-  data() {
-    return {
-      submitted: false
-    }
-  },
   methods: {
     currentDate() {
       const current = new Date();

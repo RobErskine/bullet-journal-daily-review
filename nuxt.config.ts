@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   mode: 'spa',
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@kevinmarrec/nuxt-pwa'
   ]
 })

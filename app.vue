@@ -29,12 +29,22 @@ body > div{
                 Daily Review
               </h1>
             </div>
+
             <div class="block py-2">
-              <label for="numberreview" class="block text-sm font-medium text-gray-700 mb-2">How was your day?</label>
-              <input type="tel" name="numberreview" id="numberreview" class="block p-2 text-center w-full rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" aria-describedby="numberreview-description">
-              <p class="mt-1 text-sm text-gray-500" id="numberreview-description">Use a 1-10 scale. 10 Being a great day!</p>
+              <div class="relative pt-1">
+                <label for="numberreview" class="form-label">How was your day?</label>
+                <input
+                  type="range"
+                  class="form-range appearance-none w-full h-2 my-4 p-0 bg-gray-200 focus:outline-none focus:ring-0 focus:shadow-none rounded-2xl"
+                  min="0"
+                  max="100"
+                  step="5"
+                  aria-describedby="numberreview-description"
+                  id="numberreview"
+                />
+                <p class="mt-1 text-sm text-gray-500" id="numberreview-description">Use a 1-100 scale. 100 Being a great day!</p>
+              </div>
             </div>
-            
             <ToggleItem title="🇫🇷 Practice French?" description="Avez-vous étudié le français aujourd'hui? C'est en forgeant qu'on devient forgeron!" name="language" />
           
             <ToggleItem title="💪 Get some exercise?" description="Don't gotta be super buff but you can't have a beer gut either. Get your heart rate up today?" name="exercise" />
@@ -44,6 +54,11 @@ body > div{
             <ToggleItem title="🎢 Jam on a personal project?" description="Nothing like building something with your own hands. Make some time to make something for fun?" name="personalproject" />
 
             <ToggleItem title="💡 Learn something new?" description="Stagnation is death! Keep your mind sharp! Did you get spend time flex a new skill?" name="learn" />
+
+            <div class="flex justify-between content-center items-center pt-4">
+              <label for="alcohol" class="inline-block text-sm font-medium text-gray-700 mb-2">Number of alcoholic drinks consumed?</label>
+              <input type="tel" name="alcohol" id="alcohol" class="inline-block p-2 text-center w-20 rounded-md border-2 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+            </div>
 
             <div>
               <label for="review" class="block mt-4 text-sm font-medium text-gray-700">Want to expand on anything?</label>
@@ -110,13 +125,14 @@ export default {
         body: this.encode({
           'form-name': 'bullet-journal',
           'date': document.getElementById('date').value,
-          'numberreview': (parseInt(document.getElementById('numberreview').value) * 10),
+          'numberreview': parseInt(document.getElementById('numberreview').value),
           'language': document.getElementsByName('language')[0].checked,
           'exercise': document.getElementsByName('exercise')[0].checked,
           'friends': document.getElementsByName('friends')[0].checked,
           'personalproject': document.getElementsByName('personalproject')[0].checked,
           'learn': document.getElementsByName('learn')[0].checked,
           'review': document.getElementById('review').value,
+          'alcohol': document.getElementById('alcohol').value,
         })
       }).then(() => { 
         // alert('success!')

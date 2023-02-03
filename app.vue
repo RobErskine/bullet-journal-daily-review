@@ -11,7 +11,6 @@ body > div{
 </style>
 
 <template>
-  <!-- {{ currentTimeInHours() }} -->
   <main class="p-4 w-full max-w-md block flex pb-24 mx-auto">
     <div v-if="currentTimeInHours() < 21" class="block w-full">
       <div class="flex flex-col align-center justify-center p-8">
@@ -102,8 +101,8 @@ export default {
     currentDate() {
       const current = new Date();
       const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-      const days = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
-      const date = `${current.getFullYear()}-${months[current.getMonth()]}-${days[current.getDate()]}`;
+      const days = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32'];
+      const date = `${current.getFullYear()}-${months[current.getMonth()]}-${days[current.getDate() - 1]}`;
       return date;
     },
     currentTimeInHours() {
